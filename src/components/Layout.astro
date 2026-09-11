@@ -1,6 +1,28 @@
 ---
-import { site } from "../data/site";
+import { cv, site } from "../data/site";
 import "../styles/main.css";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.title,
+  url: `${site.url}/`,
+  image: `${site.url}${cv.photo}`,
+  description: site.description,
+  jobTitle: cv.role,
+  email: cv.email,
+  telephone: cv.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Atlanta",
+    addressRegion: "GA",
+    addressCountry: "US",
+  },
+  sameAs: [
+    `https://www.linkedin.com/in/${cv.linkedin}`,
+    `https://github.com/${cv.github}`,
+  ],
+};
 ---
 
 <!doctype html>
@@ -21,6 +43,7 @@ import "../styles/main.css";
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={`${site.url}/assets/thumbnails/index.png`} />
     <link rel="canonical" href={`${site.url}/`} />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     <link rel="shortcut icon" href="/assets/icon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png" />
