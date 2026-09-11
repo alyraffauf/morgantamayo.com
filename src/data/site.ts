@@ -1,7 +1,8 @@
 export const site = {
   title: "Morgan Tamayo",
+  seoTitle: "Morgan Tamayo | Data Scientist in Atlanta, GA",
   email: "mrgntamayo@gmail.com",
-  description: "Data Scientist in Atlanta, Ga.",
+  description: "Data Scientist in Atlanta, GA.",
   footer: {
     since: 2019,
     designerName: "Aly Raffauf",
